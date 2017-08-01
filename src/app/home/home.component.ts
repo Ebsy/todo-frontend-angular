@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
 
+import { Todo } from '../todo.model';
+import { TodoService } from '../todo.service';
+
 @Component({
     moduleId: module.id,
     templateUrl: 'home.component.html'
@@ -10,9 +13,9 @@ import { UserService } from '../user.service';
 
 export class HomeComponent implements OnInit {
     currentUser: User;
-    users: User[] = [];
+    todos: Todo[] = [];
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService, private todoService: TodoService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
@@ -25,6 +28,6 @@ export class HomeComponent implements OnInit {
     }
 
     private loadAllUsers() {
-        this.userService.getAll().subscribe(users => { this.users = users; });
+        this.todoService.getAll().subscribe(todos => { this.todos = todos; });
     }
 }

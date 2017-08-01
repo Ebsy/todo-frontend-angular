@@ -16,6 +16,7 @@ import { AlertComponent } from './alert/alert.component';
 import { AlertService } from './alert.service';
 import { AuthenticationService } from './authentication.service';
 import { UserService } from './user.service';
+import {TodoService } from './todo.service';
 
 // import { AlertService, AuthenticationService, UserService } from './_services/index';
 import { HomeComponent } from './home/home.component';
@@ -42,6 +43,7 @@ import { RegisterComponent } from './register/register.component';
         AlertService,
         AuthenticationService,
         UserService,
+        TodoService,
 
         // providers used to create fake backend
         // fakeBackendProvider,
