@@ -22,6 +22,8 @@ import {TodoService } from './todo.service';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { TodoComponent } from './todo/todo.component';
+import { TodoDirective } from './todo.directive';
 
 @NgModule({
     imports: [
@@ -36,7 +38,9 @@ import { RegisterComponent } from './register/register.component';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        AlertComponent
+        AlertComponent,
+        TodoComponent,
+        TodoDirective
     ],
     providers: [
         AuthGuard,
