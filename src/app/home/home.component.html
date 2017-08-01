@@ -1,0 +1,21 @@
+<div class="col-md-12 col-centered">
+  <h2>Hi {{currentUser.email}}!</h2>
+
+  <input type="text" class="form-control input-lg" placeholder=">> What needs to be done?" autofocus="" [(ngModel)]="newTodoText" (keyup.enter)="addTodo()">
+
+  <h3>Things to be done:</h3>
+  <div class="todo-list">
+    <div class="panel panel-default" *ngFor="let todo of todos.slice().reverse()">
+      <div class="panel-body">
+        <div>
+          <input attr.id={{todo._id}} type="checkbox">
+          <label attr.for={{todo._id}}>{{todo.title}}</label>
+        </div>
+        <!-- <a (click)="deleteUser(user.id)">Delete</a> -->
+      </div>
+    </div>
+  </div>
+  <div class="pull-right" style="margin-top:10px">
+    <button [routerLink]="['/login']" class="btn btn-danger">Logout</button>
+  </div>
+</div>

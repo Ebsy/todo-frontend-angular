@@ -1,16 +1,60 @@
+import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { FormsModule }    from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
+// used to create fake backend
+// import { fakeBackendProvider } from './_helpers/index';
+// import { MockBackend, MockConnection } from '@angular/http/testing';
+import { BaseRequestOptions } from '@angular/http';
+
+import { AppComponent }  from './app.component';
+import { routing }        from './app.routing';
+
+import { AlertComponent } from './alert/alert.component';
+import { AuthGuard } from './auth.guard';
+import { AlertService } from './alert.service';
+import { AuthenticationService } from './authentication.service';
+import { UserService } from './user.service';
+import {TodoService } from './todo.service';
+
+// import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { TodoComponent } from './todo/todo.component';
+import { TodoDirective } from './todo.directive';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        routing
+    ],
+    declarations: [
+        AppComponent,
+        AlertComponent,
+        HomeComponent,
+        LoginComponent,
+        RegisterComponent,
+        AlertComponent,
+        TodoComponent,
+        TodoDirective
+    ],
+    providers: [
+        AuthGuard,
+        AlertService,
+        AuthenticationService,
+        UserService,
+        TodoService,
+
+        // providers used to create fake backend
+        // fakeBackendProvider,
+        // MockBackend,
+        BaseRequestOptions
+    ],
+    bootstrap: [AppComponent]
 })
+
 export class AppModule { }
