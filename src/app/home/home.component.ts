@@ -14,6 +14,7 @@ import { TodoService } from '../todo.service';
 export class HomeComponent implements OnInit {
     currentUser: User;
     todos: Todo[] = [];
+    newTodoText = '';
 
     constructor(private userService: UserService, private todoService: TodoService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -26,6 +27,13 @@ export class HomeComponent implements OnInit {
     deleteUser(id: number) {
         this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
     }
+
+    addTodo() {
+		if (this.newTodoText.trim().length) {
+			this.todoService.update(this.newTodoText);
+			this.newTodoText = '';
+		}
+	}
 
     private loadAllUsers() {
         this.todoService.getAll().subscribe(todos => { this.todos = todos; });

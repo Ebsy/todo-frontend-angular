@@ -2,9 +2,10 @@
   <h1>Hi {{currentUser.email}}!</h1>
   <p>You're logged in with Angular 2!!</p>
   <h3>Things to be done:</h3>
+  <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodoText" (keyup.enter)="addTodo()">
   <ul>
     <li *ngFor="let todo of todos">
-      {{todo.title}} ({{todo.done}} {{user.lastName}}) -
+      {{todo.title}} {{todo.done}} -
       <a (click)="deleteUser(user.id)">Delete</a>
     </li>
   </ul>

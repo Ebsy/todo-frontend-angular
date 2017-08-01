@@ -11,8 +11,8 @@ export class TodoService {
         return this.http.get('http://localhost:4040/api/todos', this.jwt()).map((response: Response) => response.json());
     }
 
-    update(todo: Todo) {
-        return this.http.put('/api/todos/' + todo.id, todo, this.jwt()).map((response: Response) => response.json());
+    update(todo: string) {
+        return this.http.patch('/api/todos/', todo, this.jwt()).map((response: Response) => response.json());
     }
 
     // private helper methods

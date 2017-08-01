@@ -12,7 +12,7 @@ import { AppComponent }  from './app.component';
 import { routing }        from './app.routing';
 
 import { AlertComponent } from './alert/alert.component';
-// import { AuthGuard } from './_guards/index';
+import { AuthGuard } from './auth.guard';
 import { AlertService } from './alert.service';
 import { AuthenticationService } from './authentication.service';
 import { UserService } from './user.service';
@@ -39,7 +39,7 @@ import { RegisterComponent } from './register/register.component';
         AlertComponent
     ],
     providers: [
-        // AuthGuard,
+        AuthGuard,
         AlertService,
         AuthenticationService,
         UserService,
